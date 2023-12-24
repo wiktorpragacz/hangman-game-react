@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@mixin center-horizontal() {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.gallows {
+  width: 7px;
+  height: 240px;
+  background-color: #000;
+  position: relative;
+
+  .bottom {
+    width: 80px;
+    height: 7px;
+    background-color: #000;
+    position: absolute;
+    bottom: 0;
+    @include center-horizontal();
+  }
+
+  .top {
+    width: 100px;
+    height: 7px;
+    background-color: #000;
+    position: relative;
+
+    .line {
+      width: 5px;
+      height: 30px;
+      background-color: #000;
+      position: absolute;
+      right: 0px;
+      top: 0;
+
+      .head {
+        position: absolute;
+        width: 35px;
+        height: 35px;
+        border-radius: 100%;
+        background-color: #000;
+        bottom: -100%;
+        @include center-horizontal();
+      }
+      .body {
+        position: relative;
+        width: 6px;
+        height: 88px;
+        top: 35px;
+        background-color: #000;
+        @include center-horizontal();
+      }
+      .left-arm {
+        position: absolute;
+        width: 6px;
+        height: 44px;
+        background-color: #000;
+        rotate: 30deg;
+        top: 56px;
+        left: -14px;
+      }
+      .right-arm {
+        position: absolute;
+        width: 6px;
+        height: 44px;
+        background-color: #000;
+        rotate: -30deg;
+        top: 56px;
+        left: 14px;
+      }
+      .right-leg {
+        width: 6px;
+        height: 70px;
+        background-color: #000;
+        position: absolute;
+        bottom: 0;
+        left: 10px;
+        top: 117px;
+        rotate: -18deg;
+      }
+      .left-leg {
+        width: 6px;
+        height: 70px;
+        background-color: #000;
+        position: absolute;
+        left: -11px;
+        top: 117px;
+        rotate: 18deg;
+      }
+    }
+  }
+}
+
+.overlayShow {
+  animation: overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes overlayShow {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+html {
+  // color-scheme: dark;
+}
