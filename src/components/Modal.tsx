@@ -15,8 +15,12 @@ const Modal = () => {
     <Dialog.Root open={blunders === 6 || win}>
       <Dialog.Overlay className="overlayShow inset-0 fixed bg-gray-900/30 flex justify-center items-center" />
       <Dialog.Content className="absolute flex-col shadow-md flex items-center justify-center rounded-lg border-2 w-[400px] h-[200px] bg-white ">
-        <h1 className="text-3xl font-semibold uppercase">
-          {blunders === 6 ? "you lost" : win && "you win"}
+        <h1
+          className={`${
+            win ? "text-green-500" : "text-red-500"
+          } text-3xl font-semibold uppercase`}
+        >
+          {blunders === 6 ? "you lost" : win && "you won"}
         </h1>
         <p className="text-slate-700">
           The correct word was <span className="uppercase">"{quessWord}"</span>
