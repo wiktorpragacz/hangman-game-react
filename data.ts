@@ -15,6 +15,8 @@ const words: string[] = [
   "music",
   "beach",
   "movie",
+  "new york",
+  "christmas tree",
 ];
 
 const letters: LetterType[] = [

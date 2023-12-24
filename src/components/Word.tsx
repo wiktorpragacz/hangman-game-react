@@ -6,7 +6,9 @@ const Word = () => {
   const { quessWord }: WordContext = useQuessingWord();
   const { userQuess, blunders, setBlunders, setWin }: UserQuessContext =
     useUserQuess();
-  const [quessState, setQuessState] = useState(Array.from(quessWord).fill(""));
+  const [quessState, setQuessState] = useState(
+    arrayFromString(quessWord).map((letter) => (letter === " " ? "space" : ""))
+  );
 
   useEffect(() => {
     const qWord = arrayFromString(quessWord);
@@ -22,7 +24,10 @@ const Word = () => {
   }, [userQuess]);
 
   function checkIfWin() {
-    if (quessWord === quessState.join("")) {
+    if (
+      quessWord ===
+      quessState.map((letter) => (letter === "space" ? " " : letter)).join("")
+    ) {
       setWin(true);
     }
   }
@@ -37,9 +42,11 @@ const Word = () => {
         {quessState.map((letter, index) => (
           <div
             key={index}
-            className="border-b-2 h-[45px] text-center pb-1 border-black text-4xl w-12 h- 12 font-semibold"
+            className={`${
+              letter !== "space" ? "border-b-2" : "border-none"
+            } h-[45px] text-center pb-1 border-black text-4xl w-12 h- 12 font-semibold`}
           >
-            {letter.toUpperCase()}
+            {letter === "space" ? "" : letter.toUpperCase()}
           </div>
         ))}
       </section>
