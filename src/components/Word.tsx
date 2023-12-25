@@ -6,7 +6,7 @@ const Word = () => {
   const { quessWord }: WordContext = useQuessingWord();
   const { userQuess, blunders, setBlunders, setWin }: UserQuessContext =
     useUserQuess();
-  const [quessState, setQuessState] = useState(
+  const [quessState, setQuessState] = useState<string[] | ""[]>(
     arrayFromString(quessWord).map((letter) => (letter === " " ? "space" : ""))
   );
 

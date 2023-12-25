@@ -1,11 +1,11 @@
 import { letters } from "../../data";
-import { UserQuessContext, useUserQuess } from "../context/UserQuessProvider";
+import { useUserQuess } from "../context/UserQuessProvider";
 import { LetterType } from "../../data";
 import { useEffect, useRef } from "react";
 
 const Keyboard = () => {
   const ref = useRef<HTMLDivElement | null>(null);
-  const { userQuess, setUserQuess }: UserQuessContext = useUserQuess();
+  const { userQuess, setUserQuess } = useUserQuess();
 
   function handleUserQuess(letter: LetterType, id: number) {
     letters.map((letter) => {

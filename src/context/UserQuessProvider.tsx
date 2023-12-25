@@ -9,7 +9,9 @@ export type UserQuessContext = {
   setWin: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const UserQuessContext = createContext<UserQuessContext>();
+const UserQuessContext = createContext<UserQuessContext>(
+  {} as UserQuessContext
+);
 
 const UserQuessProvider = ({ children }: { children: React.ReactNode }) => {
   const [userQuess, setUserQuess] = useState<string>("");

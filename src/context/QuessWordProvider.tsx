@@ -6,7 +6,7 @@ export type WordContext = {
   setQuessWord: React.Dispatch<React.SetStateAction<string>>;
 };
 
-const WordContext = createContext<WordContext>();
+const WordContext = createContext<WordContext>({} as WordContext);
 
 const QuessWordProvider = ({ children }: { children: React.ReactNode }) => {
   const [quessWord, setQuessWord] = useState<string>(
@@ -20,6 +20,7 @@ const QuessWordProvider = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useQuessingWord = () => useContext(WordContext);
 
 export default QuessWordProvider;
